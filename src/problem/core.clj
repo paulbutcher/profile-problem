@@ -1,13 +1,10 @@
 (ns problem.core
   (:require [problem.config :as config]
-            [compojure.core :refer [defroutes GET]]
-            [compojure.route :refer [resources not-found]]
-            [compojure.handler :refer [site]]
-            [ring.util.response :refer [redirect]]))
+            [compojure.core :refer [defroutes]]
+            [compojure.route :refer [not-found]]
+            [compojure.handler :refer [site]]))
 
 (defroutes app-routes
-  (GET "/" [] (redirect "/index.html"))
-  (resources "/")
   (not-found "Page not found"))
 
 (defn init []
